@@ -1,8 +1,8 @@
 import cookieParser from "cookie-parser";
 import express from "express";
 import cors from "cors";
-import errorMiddleware from "./middlewares/errorMiddleware.js";
-import router from "./routers/adminRouter.js";
+import errorMiddleware from "./middlewares/error.middleware.js";
+import router from "./routers/salon.router.js";
 
 const app = express();
 
@@ -17,7 +17,8 @@ app.use(
 app.use(cookieParser());
 
 //custom middlewares
-app.use("api/v1/users", router);
+app.use(router);
+
 app.use(errorMiddleware);
 
 export default app;
